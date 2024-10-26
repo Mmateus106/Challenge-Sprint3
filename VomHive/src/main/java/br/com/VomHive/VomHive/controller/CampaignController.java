@@ -1,9 +1,6 @@
 package br.com.VomHive.VomHive.controller;
-
 import br.com.VomHive.VomHive.model.Campaign;
-import br.com.VomHive.VomHive.model.Profile;
 import br.com.VomHive.VomHive.repository.*;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
