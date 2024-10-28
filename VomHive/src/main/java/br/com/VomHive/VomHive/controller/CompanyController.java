@@ -19,7 +19,7 @@ public class CompanyController {
     public String retornarPagina(Model model) {
         List<Company> companys = companyRepo.findAll();
         model.addAttribute("companys", companys);
-        return "pagina";
+        return "paginaCompany";
     }
 
     @GetMapping("/company/nova")
@@ -28,7 +28,7 @@ public class CompanyController {
         return "addCompany";
     }
 
-    @PostMapping("/campaign/adicionar")
+    @PostMapping("/company/adicionar")
     public String addCompany(@ModelAttribute("company") Company company) {
         companyRepo.save(company);
         return "redirect:/company";
@@ -48,21 +48,20 @@ public class CompanyController {
         return "editCompany";
     }
 
-    @PostMapping("/campaign/atualizar/{id}")
+    @PostMapping("/company/atualizar/{id}")
     public String updateCompany(@PathVariable("id") Long id, @ModelAttribute("company") Company updatedCompany) {
         Company existingCompany = companyRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Campo de Id inválido:" + id));
         existingCompany.setNmCompany(updatedCompany.getNmCompany());
         existingCompany.setCnpj(updatedCompany.getCnpj());
         existingCompany.setEmail(updatedCompany.getEmail());
-        existingCompany.setProfiles(updatedCompany.getProfiles());
         existingCompany.setDtRegister(updatedCompany.getDtRegister());
         companyRepo.save(existingCompany);
         return "redirect:/company";
     }
 
     @RequestMapping(value = "/company/{id}", method = RequestMethod.GET)
-    public String viewCampaign(@PathVariable("id") Long id, Model model) {
+    public String viewCompany(@PathVariable("id") Long id, Model model) {
         Company company = companyRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Campo de Id inválido:" + id));
         model.addAttribute("company", company);

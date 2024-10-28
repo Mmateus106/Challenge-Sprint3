@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Campanhas</title>
+    <title>Lista de Empresas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,40 +69,32 @@
     </style>
 </head>
 <body>
-<h1>Lista de Campanhas</h1>
+<h1>Lista de Empresas</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome</th>
-        <th>Detalhes</th>
-        <th>Status</th>
-        <th>Objetivo</th>
-        <th>Orçamento</th>
-        <th>Data de registro</th>
-        <th>Prazo</th>
-        <th>Ações</th>>
+        <th>Nome da Empresa</th>
+        <th>CNPJ</th>
+        <th>Email</th>
+        <th>Data de Registro</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="campaign : ${campaigns}">
-        <td th:text="${campaign.idCampaign}"></td>
-        <td th:text="${campaign.nmCampaign}"></td>
-        <td th:text="${campaign.details}"></td>
-        <td th:text="${campaign.status}"></td>
-        <td th:text="${campaign.objective}"></td>
-        <td th:text="${campaign.budget}"></td>
-        <td th:text="${campaign.dtRegister}"></td>
-        <td th:text="${campaign.term}"></td>
+    <tr th:each="company : ${companys}">
+        <td th:text="${company.idCompany}"></td>
+        <td th:text="${company.nmCompany}"></td>
+        <td th:text="${company.cnpj}"></td>
+        <td th:text="${company.email}"></td>
+        <td th:text="${company.dtRegister}"></td>
         <td class="actions">
-
-            <a th:href="@{/campaign/deletar/{id}(id=${campaign.idCampaign})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
-            <a th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}">Editar</a>
-            <a th:href="@{/campaign/{id}(id=${campaign.idCampaign})}">Ver</a>
+            <a th:href="@{/company/deletar/{id}(id=${company.idCompany})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
+            <a th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
+            <a th:href="@{/company/{id}(id=${company.idCompany})}">Ver</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/campaign/nova">Adicionar Nova Campanha</a>
+<a class="add-button" href="/company/nova">Adicionar Nova Empresa</a>
 </body>
 </html>
