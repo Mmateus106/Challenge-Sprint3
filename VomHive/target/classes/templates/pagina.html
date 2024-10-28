@@ -1,0 +1,108 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Campanhas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .actions a {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .actions a:hover {
+            background-color: #c82333;
+        }
+        .add-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .add-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Campanhas</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Detalhes</th>
+        <th>Status</th>
+        <th>Objetivo</th>
+        <th>Orçamento</th>
+        <th>Data de registro</th>
+        <th>Prazo</th>
+        <th>Ações</th>>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="campaign : ${campaigns}">
+        <td th:text="${campaign.idCampaign}"></td>
+        <td th:text="${campaign.nmCampaign}"></td>
+        <td th:text="${campaign.details}"></td>
+        <td th:text="${campaign.status}"></td>
+        <td th:text="${campaign.objective}"></td>
+        <td th:text="${campaign.budget}"></td>
+        <td th:text="${campaign.dtRegister}"></td>
+        <td th:text="${campaign.term}"></td>
+        <td class="actions">
+
+            <a th:href="@{/campaign/deletar/{id}(id=${campaign.idCampaign})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
+            <a th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}">Editar</a>
+            <a th:href="@{/campaign/{id}(id=${campaign.idCampaign})}">Ver</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="add-button" href="/campaign/nova">Adicionar Nova Campanha</a>
+</body>
+</html>

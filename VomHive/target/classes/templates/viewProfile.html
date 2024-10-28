@@ -1,0 +1,73 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .profile-details {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .profile-details dl {
+            margin: 0;
+        }
+        .profile-details dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .profile-details dd {
+            margin: 0;
+            padding: 0 0 10px 0;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        .actions a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Detalhes do Perfil</h1>
+<div class="profile-details">
+    <dl>
+        <dt>ID:</dt>
+        <dd th:text="${profile.idUser}"></dd>
+        <dt>Nome de Usuário:</dt>
+        <dd th:text="${profile.nmUser}"></dd>
+        <dt>Permissão:</dt>
+        <dd th:text="${profile.permission}"></dd>
+        <dt>Status:</dt>
+        <dd th:text="${profile.status}"></dd>
+        <dt>Data de Registro:</dt>
+        <dd th:text="${profile.dtRegister}"></dd>
+    </dl>
+    <div class="actions">
+        <a th:href="@{/profile/editar/{id}(id=${profile.idUser})}">Editar</a>
+        <a th:href="@{/profiles}">Voltar para a lista</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Campanha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Adicionar Nova Campanha</h1>
+<form action="#" th:action="@{/campaign/adicionar}" th:object="${campaign}" method="post">
+    <label for="nmCampaign">Nome da Campanha:</label>
+    <input type="text" id="nmCampaign" th:field="*{nmCampaign}" />
+
+    <label for="details">Detalhes:</label>
+    <textarea id="details" th:field="*{details}"></textarea>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" th:field="*{status}" />
+
+    <label for="objective">Objetivo:</label>
+    <input type="text" id="objective" th:field="*{objective}" />
+
+    <label for="budget">Orçamento:</label>
+    <input type="number" step="0.01" id="budget" th:field="*{budget}" />
+
+    <label for="dtRegister">Data de Registro:</label>
+    <input type="date" id="dtRegister" th:field="*{dtRegister}" />
+
+    <label for="term">Prazo:</label>
+    <input type="date" id="term" th:field="*{term}" />
+
+    <button type="submit">Adicionar</button>
+</form>
+<a href="/teste">Voltar</a>
+</body>
+</html>
