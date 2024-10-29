@@ -19,5 +19,4 @@ public class VomHiveApplication {
 	public String index(){
 		return "VOM-HIVE";
 	}
-
 }

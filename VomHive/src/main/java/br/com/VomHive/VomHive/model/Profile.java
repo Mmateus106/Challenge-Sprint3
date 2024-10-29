@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "TBL_PROFILE")
@@ -22,23 +23,23 @@ public class Profile {
     @NotEmpty(message = "A senha não pode estar vazia")
     private String passUser;
 
-    private String permission;
+    private String permission_status;
 
     private Status status;
 
-    @Past
-    private LocalDate dtRegister;
+    @PastOrPresent
+    private Date dtRegister;
 
     // Construtor padrão é necessário para JPA
     public Profile() {
     }
 
     // Construtor com parâmetros
-    public Profile(Long idUser, String nmUser, String passUser, String permission, Status status, LocalDate dtRegister) {
+    public Profile(Long idUser, String nmUser, String passUser, String permission_status, Status status, Date dtRegister) {
         this.idUser = idUser;
         this.nmUser = nmUser;
         this.passUser = passUser;
-        this.permission = permission;
+        this.permission_status = permission_status;
         this.status = status;
         this.dtRegister = dtRegister;
     }

@@ -55,6 +55,7 @@ public class CompanyController {
         existingCompany.setNmCompany(updatedCompany.getNmCompany());
         existingCompany.setCnpj(updatedCompany.getCnpj());
         existingCompany.setEmail(updatedCompany.getEmail());
+        existingCompany.setProfiles(updatedCompany.getProfiles());
         existingCompany.setDtRegister(updatedCompany.getDtRegister());
         companyRepo.save(existingCompany);
         return "redirect:/company";

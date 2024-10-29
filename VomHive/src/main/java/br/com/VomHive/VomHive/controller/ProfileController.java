@@ -64,7 +64,7 @@ public class ProfileController {
 
         existingProfile.setNmUser(updatedProfile.getNmUser());
         existingProfile.setPassUser(updatedProfile.getPassUser());
-        existingProfile.setPermission(updatedProfile.getPermission());
+        existingProfile.setPermission_status(updatedProfile.getPermission_status());
         existingProfile.setStatus(updatedProfile.getStatus());
         existingProfile.setDtRegister(updatedProfile.getDtRegister());
 

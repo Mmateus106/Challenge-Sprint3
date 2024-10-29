@@ -1,6 +1,8 @@
 package br.com.VomHive.VomHive.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "TBL_COMPANY")
@@ -29,12 +32,13 @@ public class Company {
     @JoinColumn(name = "id_profile")
     private Profile profiles;
 
-    private LocalDate dtRegister;
+    @PastOrPresent
+    private Date dtRegister;
 
     public Company() {
     }
 
-    public Company(Long idCompany, String nmCompany, String cnpj, String email, Profile profiles, LocalDate dtRegister) {
+    public Company(Long idCompany, String nmCompany, String cnpj, String email, Profile profiles, Date dtRegister) {
         this.idCompany = idCompany;
         this.nmCompany = nmCompany;
         this.cnpj = cnpj;
@@ -83,11 +87,11 @@ public class Company {
         this.profiles = profiles;
     }
 
-    public LocalDate getDtRegister() {
+    public Date getDtRegister() {
         return dtRegister;
     }
 
-    public void setDtRegister(LocalDate dtRegister) {
+    public void setDtRegister(Date dtRegister) {
         this.dtRegister = dtRegister;
     }
 }
