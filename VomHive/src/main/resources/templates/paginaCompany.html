@@ -88,9 +88,7 @@
         <td th:text="${company.nmCompany}"></td>
         <td th:text="${company.cnpj}"></td>
         <td th:text="${company.email}"></td>
-        <td th:text="${company.profiles}"></td>
         <td th:text="${company.dtRegister}"></td>
-<!--        <td th:text="${company.profiles.permission_status}"></td>-->
         <td class="actions">
             <a th:href="@{/company/deletar/{id}(id=${company.idCompany})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
             <a th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>

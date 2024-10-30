@@ -1,2 +1,0 @@
-INSERT INTO TBL_PROFILE (nm_user, pass_user, permission_status, status, dt_register) VALUES ('usuario1', 'senha123', 'ROLE_USER', 1, TO_DATE('2024-10-10', 'YYYY-MM-DD'));
-INSERT INTO TBL_COMPANY (nm_company, cnpj, email, dt_register) VALUES ('Empresa A', '12.345.678/0001-90', 'contato@empresaA.com', TO_DATE('2024-10-10', 'YYYY-MM-DD'));

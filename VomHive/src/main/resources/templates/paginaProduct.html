@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Empresas</title>
+    <title>Página de Produtos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,34 +69,35 @@
     </style>
 </head>
 <body>
-<h1>Lista de Empresas</h1>
+<h1>Lista de Produtos</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome da Empresa</th>
-        <th>CNPJ</th>
-        <th>Email</th>
-        <th>Data de Registro</th>
-        <th>Nome de Usuário</th>
-        <th>Permissão</th>
+        <th>Público Alvo</th>
+        <th>Nome dos Produtos</th>
+        <th>Diferencial</th>
+        <th>Preço</th>
+        <th>Canal de Vendas</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="company : ${companys}">
-        <td th:text="${company.idCompany}"></td>
-        <td th:text="${company.nmCompany}"></td>
-        <td th:text="${company.cnpj}"></td>
-        <td th:text="${company.email}"></td>
-        <td th:text="${company.dtRegister}"></td>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.idProduct}"></td>
+        <td th:text="${product.target}"></td>
+        <td th:text="${product.nmProduct}"></td>
+        <td th:text="${product.differential}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.salesChannel}"></td>
         <td class="actions">
-            <a th:href="@{/company/deletar/{id}(id=${company.idCompany})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
-            <a th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
-            <a th:href="@{/company/{id}(id=${company.idCompany})}">Ver</a>
+
+            <a th:href="@{/product/deletar/{id}(id=${product.idProduct})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
+            <a th:href="@{/product/editar/{id}(id=${product.idProduct})}">Editar</a>
+            <a th:href="@{/product/{id}(id=${product.idProduct})}">Ver</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/company/nova">Adicionar Nova Empresa</a>
+<a class="add-button" href="/product/nova">Adicionar Nova Campanha</a>
 </body>
 </html>
