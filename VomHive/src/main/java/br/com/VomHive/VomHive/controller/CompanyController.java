@@ -1,6 +1,7 @@
 package br.com.VomHive.VomHive.controller;
 
 import br.com.VomHive.VomHive.model.Company;
+import br.com.VomHive.VomHive.model.Product;
 import br.com.VomHive.VomHive.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,8 @@ public class CompanyController {
 
     @GetMapping("/company")
     public String retornarPagina(Model model) {
-        List<Company> companys = companyRepo.findAll();
-        model.addAttribute("companys", companys);
+        List<Company> companies = companyRepo.findAll();
+        model.addAttribute("companies", companies);
         return "paginaCompany";
     }
 
@@ -67,4 +68,6 @@ public class CompanyController {
         model.addAttribute("company", company);
         return "viewCompany";
     }
+
 }
+

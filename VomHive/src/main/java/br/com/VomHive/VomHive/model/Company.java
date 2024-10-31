@@ -33,12 +33,12 @@ public class Company {
     private Profile profiles;
 
     @PastOrPresent
-    private Date dtRegister;
+    private LocalDate dtRegister;
 
     public Company() {
     }
 
-    public Company(Long idCompany, String nmCompany, String cnpj, String email, Profile profiles, Date dtRegister) {
+    public Company(Long idCompany, String nmCompany, String cnpj, String email, Profile profiles, LocalDate dtRegister) {
         this.idCompany = idCompany;
         this.nmCompany = nmCompany;
         this.cnpj = cnpj;
@@ -87,11 +87,11 @@ public class Company {
         this.profiles = profiles;
     }
 
-    public Date getDtRegister() {
+    public LocalDate getDtRegister() {
         return dtRegister;
     }
 
-    public void setDtRegister(Date dtRegister) {
+    public void setDtRegister(LocalDate dtRegister) {
         this.dtRegister = dtRegister;
     }
 }

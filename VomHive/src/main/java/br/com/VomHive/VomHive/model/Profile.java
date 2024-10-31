@@ -28,14 +28,14 @@ public class Profile {
     private Status status;
 
     @PastOrPresent
-    private Date dtRegister;
+    private LocalDate dtRegister;
 
     // Construtor padrão é necessário para JPA
     public Profile() {
     }
 
     // Construtor com parâmetros
-    public Profile(Long idUser, String nmUser, String passUser, String permission_status, Status status, Date dtRegister) {
+    public Profile(Long idUser, String nmUser, String passUser, String permission_status, Status status, LocalDate dtRegister) {
         this.idUser = idUser;
         this.nmUser = nmUser;
         this.passUser = passUser;
