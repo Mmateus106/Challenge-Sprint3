@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes da Empresa</title>
+    <title>Detalhes da Companhia</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,24 +13,27 @@
         h1 {
             color: #333;
         }
-        .profile-details {
-            max-width: 600px;
-            margin: 0 auto;
+        .details {
             background-color: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .profile-details dl {
-            margin: 0;
+        p {
+            margin: 10px 0;
         }
-        .profile-details dt {
-            font-weight: bold;
-            margin-top: 10px;
+        strong {
+            display: inline-block;
+            width: 150px;
         }
-        .profile-details dd {
-            margin: 0;
-            padding: 0 0 10px 0;
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         .actions {
             margin-top: 20px;
@@ -47,27 +50,25 @@
         .actions a:hover {
             background-color: #0056b3;
         }
+        .actions .edit-button {
+            background-color: #007BFF;
+        }
+        .actions .edit-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-<h1>Detalhes da Empresa</h1>
-<div class="profile-details">
-    <dl>
-        <dt>ID:</dt>
-        <dd th:text="${company.idCompany}"></dd>
-        <dt>Nome da Empresa:</dt>
-        <dd th:text="${company.nmCompany}"></dd>
-        <dt>CNPJ da Empresa:</dt>
-        <dd th:text="${company.cnpj}"></dd>
-        <dt>Email:</dt>
-        <dd th:text="${company.email}"></dd>
-        <dt>Data de Registro:</dt>
-        <dd th:text="${company.dtRegister}"></dd>
-    </dl>
-    <div class="actions">
-        <a th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
-        <a th:href="@{/company}">Voltar para a lista</a>
-    </div>
+<h1>Detalhes da Companhia</h1>
+<div class="details">
+    <p><strong>Nome da Companhia</strong> <span th:text="${company.nmCompany}"></span></p>
+    <p><strong>CNPJ</strong> <span th:text="${company.cnpj}"></span></p>
+    <p><strong>Email</strong> <span th:text="${company.email}"></span></p>
+    <p><strong>Data de Registro</strong> <span th:text="${company.dtRegister}"></span></p>
+</div>
+<div class="actions">
+    <a href="/company">Voltar para a Lista</a>
+    <a class="edit-button" th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
 </div>
 </body>
 </html>

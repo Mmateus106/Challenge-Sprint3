@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Empresas</title>
+    <title>Página de Companhias</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,27 +69,26 @@
     </style>
 </head>
 <body>
-<h1>Lista de Empresas</h1>
+<h1>Lista de Companhias</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome da Empresa</th>
+        <th>Nome da Companhia</th>
         <th>CNPJ</th>
         <th>Email</th>
         <th>Data de Registro</th>
-        <th>Nome de Usuário</th>
-        <th>Permissão</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="company : ${companys}">
+    <tr th:each="company : ${companies}">
         <td th:text="${company.idCompany}"></td>
         <td th:text="${company.nmCompany}"></td>
         <td th:text="${company.cnpj}"></td>
         <td th:text="${company.email}"></td>
         <td th:text="${company.dtRegister}"></td>
         <td class="actions">
+
             <a th:href="@{/company/deletar/{id}(id=${company.idCompany})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
             <a th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
             <a th:href="@{/company/{id}(id=${company.idCompany})}">Ver</a>
@@ -97,6 +96,6 @@
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/company/nova">Adicionar Nova Empresa</a>
+<a class="add-button" href="/company/nova">Adicionar Nova Campanha</a>
 </body>
 </html>

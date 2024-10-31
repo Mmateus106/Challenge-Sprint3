@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Empresa</title>
+    <title>Editar Companhia</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,81 +13,63 @@
         h1 {
             color: #333;
         }
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
+        form {
             background-color: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
         }
-        .form-group input {
+        input, textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
+            margin-bottom: 12px;
         }
-        .form-group input.error {
-            border-color: #dc3545;
-        }
-        .form-group .error-message {
-            color: #dc3545;
-            font-size: 0.875em;
-        }
-        .form-group button {
-            padding: 10px 15px;
+        button {
             background-color: #007BFF;
             color: white;
+            padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
-        .form-group button:hover {
+        button:hover {
             background-color: #0056b3;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-<h1>Editar Empresa</h1>
-<div class="form-container">
-    <form th:action="@{/company/atualizar/{id}(id=${company.idCompany})}" th:object="${company}" method="post">
-        <!-- Inclua o ID do perfil para identificar qual perfil está sendo atualizado -->
-        <input type="hidden" th:field="*{idCompany}" />
+<h1>Editar Companhia</h1>
+<form th:action="@{/company/atualizar/{id}(id=${company.idCompany})}" th:object="${company}" method="post">
+    <label for="nmCompany">Nome da Companhia</label>
+    <input type="text" id="nmCompany" th:field="*{nmCompany}" />
 
-        <div class="form-group">
-            <label for="nmCompany">Nome da Empresa</label>
-            <input type="text" id="nmCompany" th:field="*{nmCompany}" />
-            <div class="error-message" th:if="${#fields.hasErrors('nmCompany')}" th:errors="*{nmCompany}"></div>
-        </div>
+    <label for="cnpj">CNPJ</label>
+    <textarea id="cnpj" th:field="*{cnpj}"></textarea>
 
-        <div class="form-group">
-            <label for="cnpj">CNPJ</label>
-            <input type="text" id="cnpj" th:field="*{cnpj}" />
-            <div class="error-message" th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}"></div>
-        </div>
+    <label for="email">Email da Companhia</label>
+    <input type="text" id="email" th:field="*{email}" />
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" id="email" th:field="*{email}" />
-        </div>
+    <label for="dtRegister">Data de Registro</label>
+    <input type="text" id="dtRegister" th:field="*{dtRegister}" />
 
-        <div class="form-group">
-            <label for="dtRegister">Data de Registro</label>
-            <input type="date" id="dtRegister" th:field="*{dtRegister}" />
-        </div>
-
-        <div class="form-group">
-            <button type="submit">Salvar</button>
-        </div>
-    </form>
-</div>
+    <button type="submit">Atualizar Companhia</button>
+    <a href="/company">Cancelar</a>
+</form>
 </body>
 </html>
