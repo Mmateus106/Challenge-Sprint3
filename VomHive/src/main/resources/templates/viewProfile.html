@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        p {
+            margin: 10px 0;
+        }
+        strong {
+            display: inline-block;
+            width: 150px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .actions {
+            margin-top: 20px;
+        }
+        .actions a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+        .actions .edit-button {
+            background-color: #007BFF;
+        }
+        .actions .edit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Detalhes do Usuário</h1>
+<div class="details">
+    <p><strong>Nome do Usuário</strong> <span th:text="${profile.nmUser}"></span></p>
+    <p><strong>Nível de Permissão</strong> <span th:text="${profile.permission_status}"></span></p>
+    <p><strong>Status</strong> <span th:text="${profile.status}"></span></p>
+    <p><strong>Data de Registro</strong> <span th:text="${profile.dtRegister}"></span></p>
+</div>
+<div class="actions">
+    <a href="/profile">Voltar para a Lista</a>
+    <a class="edit-button" th:href="@{/profile/editar/{id}(id=${profile.idUser})}">Editar</a>
+</div>
+</body>
+</html>

@@ -67,19 +67,19 @@
     <input type="text" id="nmUser" th:field="*{nmUser}" />
 
     <label for="passUser">Senha</label>
-    <textarea type="password" id="passUser" th:field="*{passUser}"></textarea>
+    <input type="password" id="passUser" th:field="*{passUser}"/>
 
-    <label for="differential">Diferencial</label>
-    <input type="text" id="differential" th:field="*{differential}" />
+    <label for="permission_status">Nível de Permissão</label>
+    <input type="text" id="permission_status" th:field="*{permission_status}" />
 
-    <label for="price">Preço</label>
-    <input type="text" id="price" th:field="*{price}" />
+    <label for="status">Status</label>
+    <input type="text" id="status" th:field="*{status}" />
 
-    <label for="salesChannel">Canal de vendas</label>
-    <input type="text" id="salesChannel" th:field="*{salesChannel}" />
+    <label for="dtRegister">Data de Registro</label>
+    <input type="text" id="dtRegister" th:field="*{dtRegister}" />
 
     <button type="submit">Adicionar</button>
 </form>
-<a href="/product">Voltar</a>
+<a href="/profile">Voltar</a>
 </body>
 </html>
