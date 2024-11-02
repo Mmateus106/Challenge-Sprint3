@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Usuários</title>
+    <title th:text="#{title.pageProfile}">Página Usuários</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,15 +69,15 @@
     </style>
 </head>
 <body>
-<h1>Lista de Usuários</h1>
+<h1 th:text="#{title.listProfile}">Lista de Usuários</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome do Usuário</th>
-        <th>Nível de Permissão</th>
-        <th>Status</th>
-        <th>Data de Registro</th>
+        <th th:text="#{label.userName}">Nome do Usuário</th>
+        <th th:text="#{label.permissionLevel}">Nível de Permissão</th>
+        <th th:text="#{label.status}">Status</th>
+        <th th:text="#{label.registerDate}">Data de Registro</th>
     </tr>
     </thead>
     <tbody>
@@ -89,13 +89,13 @@
         <td th:text="${profile.dtRegister}"></td>
         <td class="actions">
 
-            <a th:href="@{/profile/deletar/{id}(id=${profile.idUser})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
-            <a th:href="@{/profile/editar/{id}(id=${profile.idUser})}">Editar</a>
-            <a th:href="@{/profile/{id}(id=${profile.idUser})}">Ver</a>
+            <a th:href="@{/profile/deletar/{id}(id=${profile.idUser})}" onclick="return confirm('Você tem certeza que deseja excluir?');" th:text="#{button.delete}">Excluir</a>
+            <a th:href="@{/profile/editar/{id}(id=${profile.idUser})}" th:text="#{button.edit}">Editar</a>
+            <a th:href="@{/profile/{id}(id=${profile.idUser})}" th:text="#{button.view}">Ver</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/profile/nova">Adicionar Nova Campanha</a>
+<a class="add-button" href="/profile/nova" th:text="#{button.add}">Adicionar</a>
 </body>
 </html>

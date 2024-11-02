@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Produtos</title>
+    <title th:text="#{title.pageProduct}">Página Produtos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,16 +69,16 @@
     </style>
 </head>
 <body>
-<h1>Lista de Produtos</h1>
+<h1 th:text="#{title.listProduct}">Lista de Produtos</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Público Alvo</th>
-        <th>Nome dos Produtos</th>
-        <th>Diferencial</th>
-        <th>Preço</th>
-        <th>Canal de Vendas</th>
+        <th th:text="#{label.target}">Público Alvo</th>
+        <th th:text="#{label.productName}">Nome do Produto</th>
+        <th th:text="#{label.differential}">Diferencial</th>
+        <th th:text="#{label.price}">Preço</th>
+        <th th:text="#{label.salesChannel}">Canal de Vendas</th>
     </tr>
     </thead>
     <tbody>
@@ -91,13 +91,13 @@
         <td th:text="${product.salesChannel}"></td>
         <td class="actions">
 
-            <a th:href="@{/product/deletar/{id}(id=${product.idProduct})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
-            <a th:href="@{/product/editar/{id}(id=${product.idProduct})}">Editar</a>
-            <a th:href="@{/product/{id}(id=${product.idProduct})}">Ver</a>
+            <a th:href="@{/product/deletar/{id}(id=${product.idProduct})}" onclick="return confirm('Você tem certeza que deseja excluir?');" th:text="#{button.delete}">Excluir</a>
+            <a th:href="@{/product/editar/{id}(id=${product.idProduct})}" th:text="#{button.edit}">Editar</a>
+            <a th:href="@{/product/{id}(id=${product.idProduct})}" th:text="#{button.view}">Ver</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/product/nova">Adicionar Nova Campanha</a>
+<a class="add-button" href="/product/nova" th:text="#{button.add}">Adicionar</a>
 </body>
 </html>

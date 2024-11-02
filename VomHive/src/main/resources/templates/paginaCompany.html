@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Companhias</title>
+    <title th:text="#{title.pageCompany}">Página Companhias</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,15 +69,15 @@
     </style>
 </head>
 <body>
-<h1>Lista de Companhias</h1>
+<h1 th:text="#{title.listCompany}">Lista de Companhias</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome da Companhia</th>
-        <th>CNPJ</th>
-        <th>Email</th>
-        <th>Data de Registro</th>
+        <th th:text="#{label.companyName}">Nome da Companhia</th>
+        <th th:text="#{label.cnpj}">CNPJ</th>
+        <th th:text="#{label.companyEmail}">Email da Companhia</th>
+        <th th:text="#{label.registerDate}">Data de Registro</th>
     </tr>
     </thead>
     <tbody>
@@ -89,13 +89,13 @@
         <td th:text="${company.dtRegister}"></td>
         <td class="actions">
 
-            <a th:href="@{/company/deletar/{id}(id=${company.idCompany})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
-            <a th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
-            <a th:href="@{/company/{id}(id=${company.idCompany})}">Ver</a>
+            <a th:href="@{/company/deletar/{id}(id=${company.idCompany})}" onclick="return confirm('Você tem certeza que deseja excluir?');" th:text="#{button.delete}">Excluir</a>
+            <a th:href="@{/company/editar/{id}(id=${company.idCompany})}" th:text="#{button.edit}">Editar</a>
+            <a th:href="@{/company/{id}(id=${company.idCompany})}" th:text="#{button.view}">Ver</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/company/nova">Adicionar Nova Campanha</a>
+<a class="add-button" href="/company/nova" th:text="#{button.add}">Adicionar</a>
 </body>
 </html>

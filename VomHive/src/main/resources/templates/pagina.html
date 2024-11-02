@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Campanhas</title>
+    <title th:text="#{title.pageCampaign}">Página Campanhas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,19 +69,19 @@
     </style>
 </head>
 <body>
-<h1>Lista de Campanhas</h1>
+<h1 th:text="#{title.listCampaing}">Lista de Campanhas</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Nome</th>
-        <th>Detalhes</th>
-        <th>Status</th>
-        <th>Objetivo</th>
-        <th>Orçamento</th>
-        <th>Data de registro</th>
-        <th>Prazo</th>
-        <th>Ações</th>>
+        <th th:text="#{label.campaignName}">Nome</th>
+        <th th:text="#{label.details}">Detalhes</th>
+        <th th:text="#{label.status}">Status</th>
+        <th th:text="#{label.objective}">Objetivo</th>
+        <th th:text="#{label.budget}">Orçamento</th>
+        <th th:text="#{label.registerDate}">Data de registro</th>
+        <th th:text="#{label.term}">Prazo</th>
+        <th th:text="#{label.actions}">Ações</th>>
     </tr>
     </thead>
     <tbody>
@@ -96,13 +96,13 @@
         <td th:text="${campaign.term}"></td>
         <td class="actions">
 
-            <a th:href="@{/campaign/deletar/{id}(id=${campaign.idCampaign})}" onclick="return confirm('Você tem certeza que deseja excluir?');">Excluir</a>
-            <a th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}">Editar</a>
-            <a th:href="@{/campaign/{id}(id=${campaign.idCampaign})}">Ver</a>
+            <a th:href="@{/campaign/deletar/{id}(id=${campaign.idCampaign})}" onclick="return confirm('Você tem certeza que deseja excluir?');" th:text="#{button.delete}">Excluir</a>
+            <a th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}" th:text="#{button.edit}">Editar</a>
+            <a th:href="@{/campaign/{id}(id=${campaign.idCampaign})}" th:text="#{button.view}">Ver</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a class="add-button" href="/campaign/nova">Adicionar Nova Campanha</a>
+<a class="add-button" href="/campaign/nova" th:text="#{button.add}">Adicionar</a>
 </body>
 </html>
