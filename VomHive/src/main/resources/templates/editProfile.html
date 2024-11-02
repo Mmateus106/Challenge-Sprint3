@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Usuário</title>
+    <title th:text="#{title.editUser}">Editar Usuário</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,25 +54,25 @@
     </style>
 </head>
 <body>
-<h1>Editar Usuário</h1>
+<h1 th:text="#{title.editUser}">Editar Usuário</h1>
 <form th:action="@{/profile/atualizar/{id}(id=${profile.idUser})}" th:object="${profile}" method="post">
-    <label for="nmUser">Nome do Usuário</label>
+    <label for="nmUser" th:text="#{label.userName}">Nome do Usuário</label>
     <input type="text" id="nmUser" th:field="*{nmUser}" />
 
-    <label for="passUser">Senha do Usuário</label>
+    <label for="passUser" th:text="#{label.userPassword}">Senha do Usuário</label>
     <input type="password" id="passUser" th:field="*{passUser}"/>
 
-    <label for="permission_status">Permissão</label>
+    <label for="permission_status" th:text="#{label.permissionStatus}">Permissão</label>
     <input type="text" id="permission_status" th:field="*{permission_status}" />
 
-    <label for="status">Status</label>
+    <label for="status" th:text="#{label.status}">Status</label>
     <input type="text" id="status" th:field="*{status}" />
 
-    <label for="dtRegister">Data de Registro</label>
+    <label for="dtRegister" th:text="#{label.registerDate}">Data de Registro</label>
     <input type="text" id="dtRegister" th:field="*{dtRegister}" />
 
-    <button type="submit">Atualizar Usuário</button>
-    <a href="/profile">Cancelar</a>
+    <button type="submit" th:text="#{button.update}">Atualizar Usuário</button>
+    <a href="/profile" th:text="#{link.cancel}">Cancelar</a>
 </form>
 </body>
 </html>

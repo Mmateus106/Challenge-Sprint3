@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Novo Produto</title>
+    <title th:text="#{title.addProduct}">Adicionar Novo Produto</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,25 +61,25 @@
     </style>
 </head>
 <body>
-<h1>Adicionar Novo Produto</h1>
+<h1 th:text="#{title.addProduct}">Adicionar Novo Produto</h1>
 <form action="#" th:action="@{/product/adicionar}" th:object="${product}" method="post">
-    <label for="target">Público alvo</label>
+    <label for="target" th:text="#{label.target}">Público alvo</label>
     <input type="text" id="target" th:field="*{target}" />
 
-    <label for="nmProduct">Nome do produto</label>
-    <textarea type="text" id="nmProduct" th:field="*{nmProduct}"></textarea>
+    <label for="nmProduct" th:text="#{label.productName}">Nome do produto</label>
+    <textarea id="nmProduct" th:field="*{nmProduct}"></textarea>
 
-    <label for="differential">Diferencial</label>
+    <label for="differential" th:text="#{label.differential}">Diferencial</label>
     <input type="text" id="differential" th:field="*{differential}" />
 
-    <label for="price">Preço</label>
+    <label for="price" th:text="#{label.price}">Preço</label>
     <input type="text" id="price" th:field="*{price}" />
 
-    <label for="salesChannel">Canal de vendas</label>
+    <label for="salesChannel" th:text="#{label.salesChannel}">Canal de vendas</label>
     <input type="text" id="salesChannel" th:field="*{salesChannel}" />
 
-    <button type="submit">Adicionar</button>
+    <button type="submit" th:text="#{button.add}">Adicionar</button>
 </form>
-<a href="/product">Voltar</a>
+<a href="/product" th:text="#{link.back}">Voltar</a>
 </body>
 </html>

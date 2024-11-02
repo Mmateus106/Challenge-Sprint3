@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Companhia</title>
+    <title th:text="#{title.editCompany}">Editar Companhia</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,22 +54,22 @@
     </style>
 </head>
 <body>
-<h1>Editar Companhia</h1>
+<h1 th:text="#{title.editCompany}">Editar Companhia</h1>
 <form th:action="@{/company/atualizar/{id}(id=${company.idCompany})}" th:object="${company}" method="post">
-    <label for="nmCompany">Nome da Companhia</label>
+    <label for="nmCompany" th:text="#{label.companyName}">Nome da Companhia</label>
     <input type="text" id="nmCompany" th:field="*{nmCompany}" />
 
-    <label for="cnpj">CNPJ</label>
+    <label for="cnpj" th:text="#{label.cnpj}">CNPJ</label>
     <textarea id="cnpj" th:field="*{cnpj}"></textarea>
 
-    <label for="email">Email da Companhia</label>
+    <label for="email" th:text="#{label.email}">Email da Companhia</label>
     <input type="text" id="email" th:field="*{email}" />
 
-    <label for="dtRegister">Data de Registro</label>
+    <label for="dtRegister" th:text="#{label.registerDate}">Data de Registro</label>
     <input type="text" id="dtRegister" th:field="*{dtRegister}" />
 
-    <button type="submit">Atualizar Companhia</button>
-    <a href="/company">Cancelar</a>
+    <button type="submit" th:text="#{button.update}">Atualizar Companhia</button>
+    <a href="/company" th:text="#{link.cancel}">Cancelar</a>
 </form>
 </body>
 </html>

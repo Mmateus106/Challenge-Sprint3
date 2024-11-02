@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Campanha</title>
+    <title th:text="#{title.addCampaign}">Adicionar Campanha</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,31 +61,31 @@
     </style>
 </head>
 <body>
-<h1>Adicionar Nova Campanha</h1>
+<h1 th:text="#{title.addCampaign}">Adicionar Nova Campanha</h1>
 <form action="#" th:action="@{/campaign/adicionar}" th:object="${campaign}" method="post">
-    <label for="nmCampaign">Nome da Campanha:</label>
+    <label for="nmCampaign" th:text="#{label.campaignName}">Nome da Campanha:</label>
     <input type="text" id="nmCampaign" th:field="*{nmCampaign}" />
 
-    <label for="details">Detalhes:</label>
+    <label for="details" th:text="#{label.details}">Detalhes:</label>
     <textarea id="details" th:field="*{details}"></textarea>
 
-    <label for="status">Status:</label>
+    <label for="status" th:text="#{label.status}">Status:</label>
     <input type="text" id="status" th:field="*{status}" />
 
-    <label for="objective">Objetivo:</label>
+    <label for="objective" th:text="#{label.objective}">Objetivo:</label>
     <input type="text" id="objective" th:field="*{objective}" />
 
-    <label for="budget">Orçamento:</label>
+    <label for="budget" th:text="#{label.budget}">Orçamento:</label>
     <input type="number" step="0.01" id="budget" th:field="*{budget}" />
 
-    <label for="dtRegister">Data de Registro:</label>
+    <label for="dtRegister" th:text="#{label.registerDate}">Data de Registro:</label>
     <input type="date" id="dtRegister" th:field="*{dtRegister}" />
 
-    <label for="term">Prazo:</label>
+    <label for="term" th:text="#{label.term}">Prazo:</label>
     <input type="date" id="term" th:field="*{term}" />
 
-    <button type="submit">Adicionar</button>
+    <button type="submit" th:text="#{button.add}">Adicionar</button>
 </form>
-<a href="/teste">Voltar</a>
+<a href="/teste" th:text="#{link.back}">Voltar</a>
 </body>
 </html>

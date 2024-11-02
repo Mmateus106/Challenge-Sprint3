@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Novo Usuário</title>
+    <title th:text="#{title.addUser}">Adicionar Novo Usuário</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,23 +63,23 @@
 <body>
 <h1>Adicionar Novo Usuário</h1>
 <form action="#" th:action="@{/profile/adicionar}" th:object="${profile}" method="post">
-    <label for="nmUser">Nome de Usuário</label>
+    <label for="nmUser" th:text="#{label.userName}">Nome de Usuário</label>
     <input type="text" id="nmUser" th:field="*{nmUser}" />
 
-    <label for="passUser">Senha</label>
+    <label for="passUser" th:text="#{label.password}">Senha</label>
     <input type="password" id="passUser" th:field="*{passUser}"/>
 
-    <label for="permission_status">Nível de Permissão</label>
+    <label for="permission_status" th:text="#{label.permissionLevel}">Nível de Permissão</label>
     <input type="text" id="permission_status" th:field="*{permission_status}" />
 
-    <label for="status">Status</label>
+    <label for="status" th:text="#{label.status}">Status</label>
     <input type="text" id="status" th:field="*{status}" />
 
-    <label for="dtRegister">Data de Registro</label>
+    <label for="dtRegister" th:text="#{label.registerDate}">Data de Registro</label>
     <input type="text" id="dtRegister" th:field="*{dtRegister}" />
 
-    <button type="submit">Adicionar</button>
+    <button type="submit" th:text="#{button.add}">Adicionar</button>
 </form>
-<a href="/profile">Voltar</a>
+<a href="/profile" th:text="#{link.back}">Voltar</a>
 </body>
 </html>
