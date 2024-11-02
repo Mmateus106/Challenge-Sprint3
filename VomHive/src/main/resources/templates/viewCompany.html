@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes da Companhia</title>
+    <title th:text="#{title.viewCompany}">Detalhes da Companhia</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,16 +59,16 @@
     </style>
 </head>
 <body>
-<h1>Detalhes da Companhia</h1>
+<h1 th:text="#{title.viewCompany}">Detalhes da Companhia</h1>
 <div class="details">
-    <p><strong>Nome da Companhia</strong> <span th:text="${company.nmCompany}"></span></p>
-    <p><strong>CNPJ</strong> <span th:text="${company.cnpj}"></span></p>
-    <p><strong>Email</strong> <span th:text="${company.email}"></span></p>
-    <p><strong>Data de Registro</strong> <span th:text="${company.dtRegister}"></span></p>
+    <p><span th:text="${company.nmCompany}"></span></p>
+    <p><span th:text="${company.cnpj}"></span></p>
+    <p><span th:text="${company.email}"></span></p>
+    <p><span th:text="${company.dtRegister}"></span></p>
 </div>
 <div class="actions">
-    <a href="/company">Voltar para a Lista</a>
-    <a class="edit-button" th:href="@{/company/editar/{id}(id=${company.idCompany})}">Editar</a>
+    <a href="/company" th:text="#{link.back}">Voltar</a>
+    <a class="edit-button" th:href="@{/company/editar/{id}(id=${company.idCompany})}" th:text="#{button.edit}">Editar</a>
 </div>
 </body>
 </html>

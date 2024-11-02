@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{title.v}">Detalhes da Campanha</title>
+    <title th:text="#{title.viewCampaing}">Detalhes da Campanha</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,19 +59,19 @@
     </style>
 </head>
 <body>
-<h1>Detalhes da Campanha</h1>
+<h1 th:text="#{title.viewCampaing}">Detalhes da Campanha</h1>
 <div class="details">
-    <p><strong>Nome da Campanha:</strong> <span th:text="${campaign.nmCampaign}"></span></p>
-    <p><strong>Detalhes:</strong> <span th:text="${campaign.details}"></span></p>
-    <p><strong>Status:</strong> <span th:text="${campaign.status}"></span></p>
-    <p><strong>Objetivo:</strong> <span th:text="${campaign.objective}"></span></p>
-    <p><strong>Orçamento:</strong> <span th:text="${campaign.budget}"></span></p>
-    <p><strong>Data de Registro:</strong> <span th:text="${campaign.dtRegister}"></span></p>
-    <p><strong>Data de Prazo:</strong> <span th:text="${campaign.term}"></span></p>
+    <p><span th:text="${campaign.nmCampaign}"></span></p>
+    <p><span th:text="${campaign.details}"></span></p>
+    <p><span th:text="${campaign.status}"></span></p>
+    <p><span th:text="${campaign.objective}"></span></p>
+    <p><span th:text="${campaign.budget}"></span></p>
+    <p><span th:text="${campaign.dtRegister}"></span></p>
+    <p><span th:text="${campaign.term}"></span></p>
 </div>
 <div class="actions">
-    <a href="/teste">Voltar para a Lista</a>
-    <a class="edit-button" th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}">Editar</a>
+    <a href="/teste"th:text="#{link.back}">Voltar</a>
+    <a class="edit-button" th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}" th:text="#{button.edit}">Editar</a>
 </div>
 </body>
 </html>

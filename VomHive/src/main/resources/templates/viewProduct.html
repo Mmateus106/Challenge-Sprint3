@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes do Produto</title>
+    <title th:text="#{title.viewProduct}">Detalhes do Produto</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,17 +59,17 @@
     </style>
 </head>
 <body>
-<h1>Detalhes do Produto</h1>
+<h1 th:text="#{title.viewProduct}">Detalhes do Produto</h1>
 <div class="details">
-    <p><strong>Público alvo</strong> <span th:text="${product.target}"></span></p>
-    <p><strong>Nome do produto</strong> <span th:text="${product.nmProduct}"></span></p>
-    <p><strong>Diferencial</strong> <span th:text="${product.differential}"></span></p>
-    <p><strong>Preço</strong> <span th:text="${product.price}"></span></p>
-    <p><strong>Canal de vendas</strong> <span th:text="${product.salesChannel}"></span></p>
+    <p><span th:text="${product.target}"></span></p>
+    <p><span th:text="${product.nmProduct}"></span></p>
+    <p><span th:text="${product.differential}"></span></p>
+    <p><span th:text="${product.price}"></span></p>
+    <p><span th:text="${product.salesChannel}"></span></p>
 </div>
 <div class="actions">
-    <a href="/product">Voltar para a Lista</a>
-    <a class="edit-button" th:href="@{/product/editar/{id}(id=${product.idProduct})}">Editar</a>
+    <a href="/product" th:text="#{link.back}">Voltar</a>
+    <a class="edit-button" th:href="@{/product/editar/{id}(id=${product.idProduct})}" th:text="#{button.edit}">Editar</a>
 </div>
 </body>
 </html>
