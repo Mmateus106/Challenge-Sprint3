@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes do Usuário</title>
+    <title th:text="#{title.viewProfile}">Detalhes do Usuário</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,16 +59,16 @@
     </style>
 </head>
 <body>
-<h1>Detalhes do Usuário</h1>
+<h1 th:text="#{title.viewProfile}">Detalhes do Usuário</h1>
 <div class="details">
-    <p><strong>Nome do Usuário</strong> <span th:text="${profile.nmUser}"></span></p>
-    <p><strong>Nível de Permissão</strong> <span th:text="${profile.permission_status}"></span></p>
-    <p><strong>Status</strong> <span th:text="${profile.status}"></span></p>
-    <p><strong>Data de Registro</strong> <span th:text="${profile.dtRegister}"></span></p>
+    <p><span th:text="${profile.nmUser}"></span></p>
+    <p><span th:text="${profile.permission_status}"></span></p>
+    <p><span th:text="${profile.status}"></span></p>
+    <p><span th:text="${profile.dtRegister}"></span></p>
 </div>
 <div class="actions">
-    <a href="/profile">Voltar para a Lista</a>
-    <a class="edit-button" th:href="@{/profile/editar/{id}(id=${profile.idUser})}">Editar</a>
+    <a href="/profile" th:text="#{link.back}">Voltar</a>
+    <a class="edit-button" th:href="@{/profile/editar/{id}(id=${profile.idUser})}" th:text="#{button.edit}">Editar</a>
 </div>
 </body>
 </html>

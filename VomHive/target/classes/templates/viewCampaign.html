@@ -70,8 +70,8 @@
     <p><span th:text="${campaign.term}"></span></p>
 </div>
 <div class="actions">
-    <a href="/teste">Voltar para a Lista</a>
-    <a class="edit-button" th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}">Editar</a>
+    <a href="/teste"th:text="#{link.back}">Voltar</a>
+    <a class="edit-button" th:href="@{/campaign/editar/{id}(id=${campaign.idCampaign})}" th:text="#{button.edit}">Editar</a>
 </div>
 </body>
 </html>
