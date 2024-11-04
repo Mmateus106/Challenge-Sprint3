@@ -1,0 +1,25 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head/>
+
+<body>
+
+<div class="container">
+
+    <div>
+        <h1><b><u><span th:text="#{titulo_pag_msg_rabbit}"></span></u></b></h1>
+    </div>
+
+    <div>
+        <form th:action="@{/enviar_mensagem_rabbit}" method="post">
+            <span th:text="#{msg_pag_msg}">Mensagem:</span> <input class="form-control" type="password" name="mensagem" id="mensagem"><br>
+            <p th:text="${var}" style="color:green"></p><br>
+            <button type="submit"> <span th:text="#{botao_pag_msg}">Enviar Mensagem</span> </button>
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>
