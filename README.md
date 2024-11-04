@@ -31,4 +31,8 @@ mvn spring-boot:run
 
 # Links do vídeo Pitch / Aplicação
 
+- Vídeo Sprint 3
 - https://youtu.be/ytQHsWgucLo
+
+- Vídeo Sprint 4
+- https://youtu.be/DCYEfMKqmtQ
